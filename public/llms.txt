@@ -1,0 +1,56 @@
+# Portivo Control Center
+
+> Portivo is an independent, self-hosted network operations platform for compatible Alcatel-Lucent Enterprise OmniSwitch environments running AOS 6 and AOS 8.
+
+Portivo combines switch inventory, live port visibility, endpoint discovery, read-only diagnostics, an interactive SSH terminal, controlled command execution, Jobs, Fleet Audits, Runbooks, scheduled automation, notifications, granular access control and SNMPv3 UPS monitoring in one browser workspace.
+
+## Primary resources
+
+- [Product overview](https://portivo.org/): Authoritative overview of Portivo capabilities, architecture, security and deployment model.
+- [Complete handbook](https://portivo.org/docs/handbook.html): End-to-end product, installation, administration, operations and troubleshooting handbook.
+- [Documentation index](https://portivo.org/docs/): Topic-based documentation and technical references.
+- [Application source](https://github.com/Donacgreece/Portivo): Authoritative product source repository.
+- [Releases](https://github.com/Donacgreece/Portivo/releases): Published application releases and installation artifacts.
+- [Machine-readable product reference](https://portivo.org/llms-full.txt): Detailed factual summary and product boundaries.
+
+## Operations
+
+- [Switch inventory](https://portivo.org/docs/operations/switches.html)
+- [Live Port Inventory](https://portivo.org/docs/operations/live-ports.html)
+- [Find Device](https://portivo.org/docs/operations/find-device.html)
+- [Port Troubleshooter](https://portivo.org/docs/operations/troubleshooter.html)
+- [Operations and command preview](https://portivo.org/docs/operations/operations.html)
+- [Interactive SSH terminal](https://portivo.org/docs/operations/terminal.html)
+- [Jobs and lifecycle](https://portivo.org/docs/operations/jobs.html)
+- [Fleet Audits](https://portivo.org/docs/operations/fleet-audits.html)
+
+## Administration, automation and security
+
+- [Architecture](https://portivo.org/docs/concepts/architecture.html)
+- [Authentication](https://portivo.org/docs/concepts/authentication.html)
+- [Access control](https://portivo.org/docs/concepts/access-control.html)
+- [Runbooks](https://portivo.org/docs/automation/runbooks.html)
+- [Schedules](https://portivo.org/docs/automation/schedules.html)
+- [Monitoring](https://portivo.org/docs/observability/monitoring.html)
+- [Notifications](https://portivo.org/docs/observability/notifications.html)
+- [Power and UPS monitoring](https://portivo.org/docs/power/index.html)
+- [Backup and maintenance](https://portivo.org/docs/administration/backup.html)
+- [Security hardening](https://portivo.org/docs/security/hardening.html)
+
+## Exact references
+
+- [Action catalog](https://portivo.org/docs/reference/actions.html)
+- [API routes](https://portivo.org/docs/reference/api.html)
+- [Roles and capabilities](https://portivo.org/docs/reference/access-control.html)
+- [Environment variables](https://portivo.org/docs/reference/environment.html)
+- [Drivers](https://portivo.org/docs/reference/drivers.html)
+- [Fleet Audit catalog](https://portivo.org/docs/reference/audits.html)
+
+## Product boundaries
+
+- Current switch support is focused on compatible ALE OmniSwitch platforms using AOS 6 and AOS 8 profiles.
+- Portivo is intended for trusted management networks and should not be exposed directly to the public Internet.
+- Portivo uses SSH for switch operations and SNMPv3 for UPS monitoring.
+- Portivo stores operational state in SQLite; full traffic time-series monitoring is outside the product data model.
+- Portivo is independent and is not affiliated with, endorsed by or supported by ALE International, Alcatel-Lucent Enterprise or Nokia.
+- Portivo-owned source is licensed under AGPL-3.0-only.

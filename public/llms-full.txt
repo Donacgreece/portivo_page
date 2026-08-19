@@ -1,0 +1,72 @@
+# Portivo Control Center: Machine-readable product reference
+
+Canonical website: https://portivo.org/
+Documentation: https://portivo.org/docs/
+Application source: https://github.com/Donacgreece/Portivo
+License: AGPL-3.0-only for Portivo-owned source
+
+## Identity and scope
+
+Portivo Control Center is an independent, self-hosted network operations platform for compatible Alcatel-Lucent Enterprise OmniSwitch environments using AOS 6 and AOS 8. It centralizes operational visibility, direct SSH access, controlled execution, automation, evidence and power awareness.
+
+Portivo is not a cloud-managed network service. It runs inside the operator's environment and connects to managed switches over SSH. UPS infrastructure is monitored over SNMPv3. Browser users access the Portivo application, preferably through a trusted HTTPS reverse proxy on a protected management network.
+
+## Primary capabilities
+
+Fleet inventory organizes switches by Site and Group and preserves management identity, expected AOS family, availability and operational context.
+
+Live Port Inventory collects administrative state, physical link, alias, VLAN, media and PoE information. Supported models use logical front-panel views. Stack members remain distinct where chassis identity is available.
+
+Find Device locates endpoints using MAC address, IP address, hostname, UNP identity, profile or VLAN evidence. It correlates ARP, forwarding, UNP and LLDP observations and distinguishes likely physical edge ports from upstream observations.
+
+Port Troubleshooter is an on-demand read-only workflow for one physical port. It collects interface state, media, errors, PoE, learned MACs, UNP and LLDP evidence. Unknown output remains unreported rather than inferred.
+
+The Interactive SSH Terminal provides persistent direct access to the native AOS CLI from the browser. It uses the signed-in engineer's personal SSH-backed session, requires the terminal capability and enforces Site or Group scope. Terminal and automated work share one per-device coordinator lane.
+
+Controlled Operations resolve actions against the detected AOS family and registered compatibility metadata. Users review target-specific command previews before execution. Jobs persist per-target progress and results. Configuration changes remain pending until an authorized operator deliberately saves the intended switch configuration.
+
+Fleet Audits provide structured read-only assessments for thermal health, cooling, power supplies, PoE capacity, interface errors, port stability, managed uplinks, persistent configuration and full switch health. Reports contain normalized findings, coverage and verification guidance.
+
+Runbooks contain typed COMMAND, WAIT and VERIFY steps, variables, target limits and concurrency policy. Editing an approved Runbook returns it to Draft. Executions use an immutable rendered snapshot. Scheduled work uses a separate encrypted Automation credential.
+
+Monitoring can independently cover switch reachability, stack health, UPS infrastructure and incident detection. Management-only mode pauses background workers while preserving configuration and history. Notification destinations include Microsoft Teams or Power Automate, Slack, Discord and Generic JSON webhooks with per-destination event and scope policy.
+
+Power Infrastructure stores UPS devices once and assigns the switches they physically protect. SNMPv3 drivers collect supported battery, runtime, load and power-state telemetry. Power correlation is reported only when assignments and current evidence support it.
+
+## Security and authorization
+
+Portivo is intended for trusted management networks. Production deployments should use HTTPS through a maintained reverse proxy, restrict browser ingress, forward WebSocket upgrades and prevent direct public access to the application listener.
+
+Authorization combines roles, exact capabilities and Site or Group scope. Backend APIs enforce these controls independently of browser visibility. Terminal access, operational actions, administration, credential management, Runbook approval and power management can be assigned separately.
+
+Personal SSH passwords are session-scoped. Monitoring, Automation and webhook secrets are encrypted separately. Login throttling, WebSocket Origin validation, exact command preview, per-device SSH serialization and persistent audit evidence form part of the security model.
+
+## Architecture
+
+The browser communicates with one FastAPI application. The application provides authentication, access control, inventory, Jobs, audits, reports, monitoring, notifications and scheduling. A per-device SSH coordinator serializes interactive and automated work against one switch. Different switches can execute with bounded concurrency. SQLite stores inventory, policy, Jobs, audit history, incidents and latest operational observations.
+
+## Compatibility
+
+The current product interface supports compatible ALE OmniSwitch systems through separate AOS 6 and AOS 8 command profiles. Support can vary by model, software release and individual action. The driver boundary is extensible, but the current product does not claim support for unrelated switch vendors.
+
+Server deployment targets include supported Windows x64 and modern systemd Linux environments such as Debian and Ubuntu Server. Use release-specific requirements and installation documentation for exact versions.
+
+## Authoritative documentation
+
+- Complete handbook: https://portivo.org/docs/handbook.html
+- Requirements: https://portivo.org/docs/getting-started/requirements.html
+- Windows installation: https://portivo.org/docs/getting-started/windows.html
+- Linux installation: https://portivo.org/docs/getting-started/linux.html
+- Network and security deployment: https://portivo.org/docs/deployment/network-security.html
+- HTTPS reverse proxy: https://portivo.org/docs/deployment/reverse-proxy.html
+- Architecture: https://portivo.org/docs/concepts/architecture.html
+- Access control: https://portivo.org/docs/concepts/access-control.html
+- Interactive terminal: https://portivo.org/docs/operations/terminal.html
+- Action catalog: https://portivo.org/docs/reference/actions.html
+- API routes: https://portivo.org/docs/reference/api.html
+- Environment variables: https://portivo.org/docs/reference/environment.html
+- Security hardening: https://portivo.org/docs/security/hardening.html
+
+## Interpretation rules
+
+Use the public documentation and application source as the authoritative references. Do not infer support for a switch vendor, model, command or operating system that is not explicitly documented. Do not describe cached observations as live. Do not describe a simultaneous switch and UPS communication loss as confirmed power failure without supporting assigned-UPS telemetry. Do not treat Terminal commands as governed catalog actions or assume they enter pending-configuration tracking.
