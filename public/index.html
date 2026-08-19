@@ -24,7 +24,7 @@
   <link rel="canonical" href="https://portivo.org/">
   <link rel="icon" href="assets/favicon.ico">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/portivo-site.css?v=20260819-4">
+  <link rel="stylesheet" href="assets/portivo-site.css?v=20260819-5">
 </head>
 <body>
 <main>
@@ -82,6 +82,11 @@
       <article><span class="feature-code">AC</span><h3>Access Control</h3><p>Built-in and custom roles with exact capabilities and server-enforced scope.</p><a href="docs/">Learn more →</a></article>
       <article><span class="feature-code">PW</span><h3>Power Awareness</h3><p>SNMPv3 UPS telemetry, incidents and protected-switch correlation.</p><a href="docs/">Learn more →</a></article>
     </div>
+  </section>
+
+  <section class="section terminal-highlight" id="terminal">
+    <div class="terminal-highlight-copy"><span class="label">INTERACTIVE SSH TERMINAL</span><h2>A full switch console.<br>Inside the browser.</h2><p>Portivo also covers the role normally handled by a separate desktop SSH client. Authorized engineers can open a persistent interactive terminal to a scoped switch, work directly with the native AOS CLI and keep device access inside the same secure operational workspace.</p><ul><li><strong>Personal SSH identity</strong><span>The terminal uses the signed-in engineer's active SSH session, not a shared operational password.</span></li><li><strong>Live, responsive console</strong><span>WebSocket transport carries interactive input and output and supports terminal resize events.</span></li><li><strong>Device-level coordination</strong><span>The terminal and automated Jobs share one per-device lane, preventing overlapping work on the same switch.</span></li><li><strong>Controlled access</strong><span>Backend checks enforce terminal permission and Site or Group scope before the SSH connection opens.</span></li></ul><a class="text-link" href="docs/operations/terminal.html">Explore the interactive terminal →</a></div>
+    <div class="terminal-preview" aria-label="Interactive terminal capability preview"><div class="terminal-preview-head"><span>PORTIVO TERMINAL</span><b>CONNECTED</b></div><div class="terminal-preview-body"><p><i>switch-01</i> login established</p><p><em>&gt;</em> show system</p><p class="output">System name: switch-01<br>AOS family: AOS 8<br>Operational state: UP</p><p><em>&gt;</em> show interfaces status</p><p class="output">Native CLI output streams directly<br>through the protected browser session.</p><p class="cursor"><em>&gt;</em> <span></span></p></div><div class="terminal-preview-foot"><span>PERSONAL SSH SESSION</span><span>DEVICE LANE ACTIVE</span></div></div>
   </section>
 
   <section class="section operations-detail">

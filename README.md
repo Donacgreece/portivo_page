@@ -8,7 +8,7 @@
 
 Portivo Control Center is an independent, self-hosted network operations platform for compatible Alcatel-Lucent Enterprise OmniSwitch environments running AOS 6 and AOS 8.
 
-It gives network teams one controlled workspace for fleet inventory, live port visibility, endpoint discovery, diagnostics, operational changes, automation, auditing and power awareness. The platform is designed to reduce repetitive CLI work while preserving the target, evidence, authorization, execution result and audit history of each operation.
+It gives network teams one controlled workspace for fleet inventory, live port visibility, endpoint discovery, diagnostics, direct interactive SSH access, operational changes, automation, auditing and power awareness. The platform is designed to reduce repetitive CLI work while preserving the target, evidence, authorization, execution result and audit history of each operation.
 
 Portivo follows a compatibility-first model. AOS 6 and AOS 8 are treated as separate command families with dedicated profiles, drivers and runtime capability evidence. Unsupported or incomplete device output reduces coverage; it is not converted into a false health conclusion.
 
@@ -50,6 +50,14 @@ Run an on-demand, read-only diagnostic against one physical port. The workflow c
 Select an action, provide only the required parameters, review exact target-specific commands and execute through a durable Job. Automated work on the same switch uses a strict FIFO lane, while operations against different switches can proceed with bounded concurrency.
 
 Configuration-changing actions are tracked as pending until an authorized operator deliberately writes the intended switch configuration to flash.
+
+### Interactive SSH terminal
+
+Open a persistent, responsive switch console directly in the browser. For engineers who would otherwise move to a separate SSH client such as PuTTY, Portivo provides native AOS CLI access inside the same authenticated workspace used for inventory and operations.
+
+The terminal uses the signed-in engineer's personal SSH session, requires the explicit terminal capability and enforces the user's Site or Group scope. WebSocket transport carries live input, output and resize events. Interactive sessions share the same per-device coordinator as automated Jobs, so a terminal cannot overtake an active operation and a new Job cannot begin while the terminal owns the device lane.
+
+Terminal commands and output are not written into Job records. Direct CLI changes also do not automatically enter the pending-configuration workflow, so terminal access remains a high-trust capability for experienced operators.
 
 ### Jobs and audit evidence
 
