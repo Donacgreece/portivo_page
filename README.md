@@ -1,73 +1,163 @@
-# Portivo Control Center Website
+# Portivo
 
-[![Live Website](https://img.shields.io/badge/Live%20Website-7348F5?style=for-the-badge&logo=github)](https://donacgreece.github.io/portivo_page/)
-[![Version](https://img.shields.io/badge/version-2.0.0-121116?style=for-the-badge)](https://github.com/Donacgreece/Portivo/releases)
-[![License](https://img.shields.io/badge/license-AGPL--3.0-35a77b?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0.html)
+[![Website](https://img.shields.io/badge/Website-portivo.org-7348F5?style=for-the-badge)](https://portivo.org/)
+[![Documentation](https://img.shields.io/badge/Documentation-online-121116?style=for-the-badge)](https://portivo.org/docs/)
+[![License](https://img.shields.io/badge/License-AGPL--3.0-35A77B?style=for-the-badge)](https://www.gnu.org/licenses/agpl-3.0.html)
 
-Professional product website and documentation portal for **Portivo Control
-Center v2.0.0**.
+**Portivo Control Center** is an independent, self-hosted network operations
+platform for compatible Alcatel-Lucent Enterprise OmniSwitch environments. It
+brings inventory, live operational visibility, troubleshooting, controlled
+actions, auditing, automation and power awareness into one consistent
+workspace.
 
-## Live website
+This repository contains the official Portivo product website and its public
+documentation portal.
 
-**https://donacgreece.github.io/portivo_page/**
+## Official links
 
-The website is deployed automatically through GitHub Pages whenever a commit is
-pushed to the `main` branch.
+- Website: [portivo.org](https://portivo.org/)
+- Documentation: [portivo.org/docs](https://portivo.org/docs/)
+- Application source: [github.com/Donacgreece/Portivo](https://github.com/Donacgreece/Portivo)
+- Releases: [github.com/Donacgreece/Portivo/releases](https://github.com/Donacgreece/Portivo/releases)
+- Website source: [github.com/Donacgreece/portivo_page](https://github.com/Donacgreece/portivo_page)
 
-## About Portivo
+## What Portivo is designed for
 
-Portivo is an independent, self-hosted network operations platform for
-compatible Alcatel-Lucent Enterprise OmniSwitch environments. It centralizes
-inventory, live port visibility, troubleshooting, controlled CLI operations,
-fleet audits, automation and power awareness in one operational workspace.
+Portivo supports day-to-day network operations across compatible ALE
+OmniSwitch fleets. Its operational model keeps the selected scope, collected
+evidence, command preview, execution results and audit history connected.
 
-### Highlights
+The platform is intended for teams that need to:
 
-- ALE AOS 6 and AOS 8 operational support
-- Live port state, VLAN, media, PoE and LLDP visibility
-- Evidence-led endpoint location
-- Controlled command preview and execution
-- Nine read-only fleet audits
-- Automation runbooks and schedules
-- Granular role and scope enforcement
-- SNMPv3 UPS monitoring and switch correlation
-- Windows and Linux installation packages
-- Self-hosted, AGPL-3.0-only distribution
+- maintain a structured inventory of switches, sites and groups;
+- inspect live port, link, VLAN, media, PoE, LLDP and endpoint evidence;
+- locate endpoints using MAC, IP, hostname, UNP identity or VLAN data;
+- troubleshoot network conditions without immediately making changes;
+- preview and execute approved operational actions against explicit targets;
+- preserve job history and audit evidence;
+- run controlled automation and scheduled operational workflows;
+- correlate switch availability with UPS telemetry and power incidents;
+- enforce role, capability and organizational scope boundaries.
 
-## Repository structure
+## Core capabilities
+
+### Fleet and switch operations
+
+Portivo provides centralized fleet visibility and switch-focused operational
+views for compatible AOS 6 and AOS 8 systems. Driver identities and command
+profiles remain separate for each command family rather than relying on unsafe
+one-size-fits-all translation.
+
+### Live port operations
+
+Logical front-panel views combine current administrative and link state with
+alias, VLAN, media, PoE, LLDP and endpoint information. Controlled actions stay
+connected to the selected switch and port.
+
+### Endpoint location
+
+Find Device correlates available evidence to help operators identify the most
+likely switch and edge port for a device. Results distinguish live evidence
+from historical or incomplete observations.
+
+### Auditing and evidence
+
+Read-only fleet assessments, job records, audit history and generated reports
+preserve operational context. Portivo is designed to avoid presenting an
+assumption as a verified fact.
+
+### Automation
+
+Runbooks and schedules support approved command, wait and verification steps,
+with variables, explicit targets, concurrency controls and operational limits.
+
+### Access control
+
+Built-in and custom roles can be mapped to granular capabilities. Site and
+group scope is enforced by the application rather than treated as a visual
+filter.
+
+### Power awareness
+
+SNMPv3 UPS monitoring normalizes battery, runtime, load and power-state
+telemetry and can correlate protected switches with power incidents without
+claiming an unverified root cause.
+
+## Architecture
+
+Portivo follows a self-hosted operational architecture:
+
+```text
+Browser
+   │
+   ▼
+Portivo web interface
+   │
+   ▼
+Application services
+   ├── Authentication and access control
+   ├── Inventory and operational state
+   ├── Jobs, audits and scheduling
+   ├── ALE AOS 6 and AOS 8 drivers
+   ├── SSH coordination ─────────────► OmniSwitch
+   ├── SNMPv3 monitoring ────────────► UPS
+   └── Application database
+```
+
+## Security model
+
+Portivo is intended for trusted management networks. Recommended deployment
+practices include:
+
+- terminate TLS at a trusted reverse proxy;
+- restrict browser access to authorized administrative networks;
+- never expose the application service port directly to the public Internet;
+- trust forwarded proxy headers only from explicitly configured proxies;
+- use personal, session-scoped SSH credentials for interactive operations;
+- protect unattended credentials with the application secret;
+- apply least-privilege roles and organizational scope;
+- review command previews, job results and audit history.
+
+Detailed guidance is available in the
+[security and hardening documentation](https://portivo.org/docs/security/hardening.html).
+
+## Website repository
+
+The website is deliberately dependency-free and is published as static files.
+No framework runtime, package installation or build step is required.
 
 ```text
 .
-├── .github/workflows/deploy-pages.yml  # GitHub Pages deployment
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml   # Automated GitHub Pages deployment
 ├── public/
-│   ├── index.html                      # Product landing page
-│   ├── assets/                         # Brand, artwork and styling
-│   ├── docs/                           # Complete v2.0.0 documentation
-│   ├── og.png                          # Social sharing image
-│   └── .nojekyll                       # Static publishing marker
+│   ├── index.html             # Product website
+│   ├── assets/                # Brand assets, screenshots and styles
+│   ├── docs/                  # Documentation portal
+│   ├── og.png                 # Social sharing artwork
+│   └── .nojekyll              # Static publishing configuration
 └── README.md
 ```
 
 ## Local preview
 
-No framework, package manager or build step is required. Serve the `public`
-directory with any static HTTP server.
-
-Using Python:
+Serve the `public` directory with any static HTTP server. For example:
 
 ```powershell
 python -m http.server 8080 --directory public
 ```
 
-Then open `http://localhost:8080/`.
+Then open:
+
+```text
+http://localhost:8080/
+```
 
 ## Deployment
 
-The workflow in `.github/workflows/deploy-pages.yml` publishes the complete
-`public/` directory to GitHub Pages. GitHub Pages must use **GitHub Actions** as
-its deployment source under repository **Settings → Pages**.
-
-To deploy a change:
+Every push to `main` triggers the GitHub Pages workflow and publishes the
+contents of `public/`.
 
 ```powershell
 git add -A
@@ -75,27 +165,32 @@ git commit -m "Update Portivo website"
 git push origin HEAD:main
 ```
 
-## Documentation
+The custom domain is configured as `portivo.org`. DNS for the apex domain and
+the `www` alias must point to GitHub Pages, and HTTPS should be enforced from
+the repository Pages settings.
 
-The documentation portal covers installation, architecture, authentication,
-credentials, operations, automation, observability, power monitoring,
-administration, security hardening and the complete reference material for
-Portivo Control Center v2.0.0.
+## Documentation maintenance
 
-## Security notice
+Public documentation lives under `public/docs/` and is organized by topic:
 
-Portivo is intended for trusted management networks. Do not expose TCP 8766
-directly to the public Internet. Use a trusted reverse proxy, HTTPS and
-restricted administrative ingress.
+- getting started and installation;
+- concepts and architecture;
+- operations and troubleshooting;
+- automation and scheduling;
+- observability and notifications;
+- power monitoring;
+- administration;
+- security and deployment;
+- API, environment and driver reference;
+- release history.
 
-## Related repositories
-
-- Product source and releases: https://github.com/Donacgreece/Portivo
-- Website source: https://github.com/Donacgreece/portivo_page
+Release-specific facts belong in the release history and relevant reference
+pages. The main website and README describe Portivo as an evolving platform.
 
 ## License
 
-Portivo is distributed under the **GNU Affero General Public License v3.0
-only (AGPL-3.0-only)**.
+Portivo is distributed under the **GNU Affero General Public License v3.0 only
+(AGPL-3.0-only)**. Review the application repository and documentation for the
+complete licensing and attribution information.
 
 Copyright © 2026 Dimitris Galatsanos.
