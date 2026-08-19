@@ -24,21 +24,10 @@ if(inp&&box){
   });
   document.addEventListener('click',e=>{if(!e.target.closest('.search'))box.classList.remove('show')});
 }
-if(location.protocol==='file:' || ['localhost','127.0.0.1'].includes(location.hostname)){
-  document.querySelectorAll('a[href^="https://portivo.org/"]').forEach(a=>{
-    const suffix=a.getAttribute('href').replace('https://portivo.org/','');
-    const depth=(location.pathname.split('/docs.portivo.org/')[1]||'').split('/').filter(Boolean).length-1;
-    a.setAttribute('href','../'.repeat(Math.max(0,depth)+1)+'portivo.org/'+suffix);
-  });
-}
 if(location.hostname.endsWith('github.io')){
   const projectRoot='/portivo_page/';
   document.querySelectorAll('a[href^="https://portivo.org/"]').forEach(a=>{
     const suffix=a.getAttribute('href').replace('https://portivo.org/','');
     a.setAttribute('href',projectRoot+suffix);
-  });
-  document.querySelectorAll('a[href^="https://docs.portivo.org/"]').forEach(a=>{
-    const suffix=a.getAttribute('href').replace('https://docs.portivo.org/','');
-    a.setAttribute('href',projectRoot+'docs/'+suffix);
   });
 }
