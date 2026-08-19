@@ -24,7 +24,7 @@
   <link rel="canonical" href="https://portivo.org/">
   <link rel="icon" href="assets/favicon.ico">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/portivo-site.css">
+  <link rel="stylesheet" href="assets/portivo-site.css?v=20260819-2">
 </head>
 <body>
 <main>
@@ -109,7 +109,7 @@
       <article><h3>Persistent state</h3><p>SQLite stores inventory, policy, Jobs, audit history, incidents and latest observations. Full traffic time series remain outside the product data model.</p><ul><li>Streamed administrative backup</li><li>Controlled database import</li><li>Explicit retention and maintenance</li></ul></article>
       <article><h3>Access boundary</h3><p>Use a trusted reverse proxy for HTTPS and WebSocket forwarding. Restrict browser ingress to authorized management networks.</p><ul><li>Do not expose TCP 8766 publicly</li><li>Trust forwarded headers only from known proxies</li><li>Protect database, secrets and backups</li></ul></article>
     </div>
-    <div class="deployment-cta"><div><strong>Planning a production deployment?</strong><span>Start with requirements, network security and the complete installation sequence.</span></div><a class="button primary" href="docs/handbook.html#planning">Open deployment guidance <span>→</span></a></div>
+    <div class="deployment-cta"><div><strong>Planning a production deployment?</strong><p>Start with requirements, network security and the complete installation sequence.</p></div><a class="button primary" href="docs/handbook.html#planning">Open deployment guidance <span>→</span></a></div>
   </section>
 
   <section class="section security" id="security">
