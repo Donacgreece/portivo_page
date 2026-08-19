@@ -30,14 +30,14 @@
 <main>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Portivo home"><img src="assets/portivo-logo-color.svg" alt="Portivo"></a>
-    <nav aria-label="Primary navigation"><a href="#workflow">Workflow</a><a href="#capabilities">Capabilities</a><a href="#security">Security</a><a href="docs/">Docs</a><a class="nav-cta" href="https://github.com/Donacgreece/Portivo">GitHub ↗</a></nav>
+    <nav aria-label="Primary navigation"><a href="#overview">Overview</a><a href="#workflow">Workflow</a><a href="#capabilities">Capabilities</a><a href="#deployment">Deployment</a><a href="#security">Security</a><a href="docs/">Docs</a><a class="nav-cta" href="https://github.com/Donacgreece/Portivo">GitHub ↗</a></nav>
   </header>
 
   <section class="hero" id="top">
     <div class="hero-copy">
       <div class="kicker"><span></span> Open-source network operations</div>
       <h1>Network control.<br><em>Without the noise.</em></h1>
-      <p class="hero-lede">Portivo turns compatible ALE OmniSwitch fleets into one clear operational workspace—for finding, diagnosing, acting and proving what happened.</p>
+      <p class="hero-lede">Portivo brings compatible ALE OmniSwitch fleets into one clear operational workspace for finding devices, diagnosing ports, executing controlled actions and preserving evidence.</p>
       <div class="actions"><a class="button primary" href="https://github.com/Donacgreece/Portivo/releases">Download v2.0.0 <span>↗</span></a><a class="button secondary" href="docs/">Explore the docs <span>→</span></a></div>
       <div class="proof"><span>AGPL-3.0</span><span>AOS 6 + AOS 8</span><span>Windows + Linux</span><span>Self-hosted</span></div>
     </div>
@@ -49,6 +49,18 @@
   </section>
 
   <section class="metrics" aria-label="Portivo product metrics"><div><strong>149</strong><span>Catalog actions</span></div><div><strong>9</strong><span>Fleet audits</span></div><div><strong>23</strong><span>Capabilities</span></div><div><strong>9 + Auto</strong><span>UPS driver modes</span></div></section>
+
+  <section class="section overview" id="overview">
+    <div class="section-intro"><div><span class="label">ONE OPERATIONS WORKSPACE</span><h2>Built around real network work.</h2></div><p>Portivo combines the tasks operators repeat every day while keeping device access, authorization, execution and evidence inside one consistent control path.</p></div>
+    <div class="overview-grid">
+      <article><span>01</span><h3>Know the estate</h3><p>Maintain a central switch inventory organized by Site and Group. Track management identity, AOS family, availability, stack context and the latest observed state without storing shared credentials for normal user operations.</p></article>
+      <article><span>02</span><h3>See the physical edge</h3><p>Open a logical front panel with administrative state, carrier, alias, VLAN, media and PoE information. Supported stack members remain separate so the interface map reflects the actual chassis.</p></article>
+      <article><span>03</span><h3>Resolve endpoint questions</h3><p>Search by MAC, IP, hostname, UNP identity or VLAN. Correlate ARP, forwarding, UNP and LLDP evidence, then rank likely edge locations without presenting an upstream observation as a physical endpoint.</p></article>
+      <article><span>04</span><h3>Diagnose before changing</h3><p>Collect read-only link, media, error, PoE, MAC, UNP and neighbor evidence for one port. Unknown device output remains unreported instead of being converted into an unsupported conclusion.</p></article>
+      <article><span>05</span><h3>Execute with boundaries</h3><p>Resolve actions against the detected AOS family, preview exact target commands, serialize work per switch and preserve a Job record for every target. Different switches can proceed concurrently without overlapping work on one device.</p></article>
+      <article><span>06</span><h3>Operate beyond switches</h3><p>Monitor assigned UPS infrastructure through SNMPv3, route confirmed incidents to independent destinations and correlate switch loss with power evidence only when the available telemetry supports it.</p></article>
+    </div>
+  </section>
 
   <section class="section workflow" id="workflow">
     <div class="section-intro"><div><span class="label">THE OPERATIONAL LOOP</span><h2>From signal to certainty.</h2></div><p>One continuous workflow keeps the target, evidence, command preview, execution and audit history connected.</p></div>
@@ -72,9 +84,32 @@
     </div>
   </section>
 
+  <section class="section operations-detail">
+    <div class="section-intro"><div><span class="label">CONTROLLED EXECUTION</span><h2>Every action has a visible lifecycle.</h2></div><p>Manual work, automation and audits use the same durable execution model, so operators can distinguish intent, progress, result and configuration persistence.</p></div>
+    <div class="lifecycle-grid">
+      <div><strong>1</strong><h3>Select</h3><p>Choose an eligible action, explicit devices and only the parameters required by that action.</p></div>
+      <div><strong>2</strong><h3>Preview</h3><p>Review target-specific commands, compatibility evidence and the number of affected switches before execution.</p></div>
+      <div><strong>3</strong><h3>Execute</h3><p>Create a Job with one item per target. Per-device FIFO coordination prevents overlapping automated or terminal work.</p></div>
+      <div><strong>4</strong><h3>Verify</h3><p>Inspect output and terminal status, then use read-back evidence or a focused diagnostic to confirm the intended state.</p></div>
+      <div><strong>5</strong><h3>Persist</h3><p>Review pending configuration by switch and write to flash deliberately after operational validation.</p></div>
+    </div>
+    <div class="detail-links"><a href="docs/operations/operations.html">Operations and preview →</a><a href="docs/operations/jobs.html">Job lifecycle →</a><a href="docs/operations/fleet-audits.html">Fleet Audits →</a><a href="docs/handbook.html">Complete handbook →</a></div>
+  </section>
+
   <section class="section platform">
     <div class="platform-copy"><span class="label">COMPATIBILITY FIRST</span><h2>Deep ALE support.<br>Deliberately focused.</h2><p>Portivo treats AOS 6 and AOS 8 as independent command families, with dedicated driver identities, compatibility metadata and conservative runtime capability learning.</p><ul><li><b>AOS 6 + AOS 8</b><span>Separate command profiles, not fragile translation.</span></li><li><b>Per-device learning</b><span>Avoid repeated incompatible attempts.</span></li><li><b>ALE-aware PoE</b><span>Slot-qualified status collection.</span></li></ul></div>
     <div class="terminal-card" aria-label="Portivo architecture"><div class="terminal-title"><span>ARCHITECTURE / LIVE MAP</span><b>v2.0.0</b></div><div class="node browser">Browser UI</div><i class="line l1"></i><div class="node core">PORTIVO<br><small>APPLICATION</small></div><i class="line l2"></i><div class="node sub n1">Authentication<br><small>RBAC + Scope</small></div><div class="node sub n2">Jobs &amp; Audits<br><small>Evidence trail</small></div><div class="node sub n3">AOS Drivers<br><small>6 + 8</small></div><div class="terminal-foot"><span>SSH → OmniSwitch</span><span>SNMPv3 → UPS</span><span>SQLite → State</span></div></div>
+  </section>
+
+  <section class="section deployment" id="deployment">
+    <div class="section-intro"><div><span class="label">SELF-HOSTED DEPLOYMENT</span><h2>Clear components.<br>Controlled ownership.</h2></div><p>Portivo runs as one service on Windows or Linux. It is designed for a protected management network with direct reachability to managed switches and UPS devices.</p></div>
+    <div class="deployment-grid">
+      <article><h3>Application service</h3><p>A FastAPI service provides the browser interface, authenticated APIs, schedulers, monitoring workers and WebSocket terminal path.</p><ul><li>Windows service or systemd service</li><li>Default application listener on TCP 8766</li><li>Health and build identity endpoints</li></ul></article>
+      <article><h3>Managed network paths</h3><p>Manual and automated switch work uses SSH. Power monitoring uses authenticated and encrypted SNMPv3 profiles.</p><ul><li>SSH to compatible AOS 6 and AOS 8 switches</li><li>SNMPv3 authPriv for supported UPS devices</li><li>HTTPS outbound delivery for configured webhooks</li></ul></article>
+      <article><h3>Persistent state</h3><p>SQLite stores inventory, policy, Jobs, audit history, incidents and latest observations. Full traffic time series remain outside the product data model.</p><ul><li>Streamed administrative backup</li><li>Controlled database import</li><li>Explicit retention and maintenance</li></ul></article>
+      <article><h3>Access boundary</h3><p>Use a trusted reverse proxy for HTTPS and WebSocket forwarding. Restrict browser ingress to authorized management networks.</p><ul><li>Do not expose TCP 8766 publicly</li><li>Trust forwarded headers only from known proxies</li><li>Protect database, secrets and backups</li></ul></article>
+    </div>
+    <div class="deployment-cta"><div><strong>Planning a production deployment?</strong><span>Start with requirements, network security and the complete installation sequence.</span></div><a class="button primary" href="docs/handbook.html#planning">Open deployment guidance <span>→</span></a></div>
   </section>
 
   <section class="section security" id="security">
