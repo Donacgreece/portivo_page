@@ -3,19 +3,16 @@
 Official product website and documentation portal for Portivo Control Center
 v2.0.0.
 
-## Development
+## Website
 
-Requirements: Node.js 22.13 or newer.
+This is a dependency-free static website. GitHub Actions publishes the contents
+of `public/` to GitHub Pages after every push to `main`.
 
-```bash
-npm install
-npm run dev
-npm run build
-```
+- Product landing page: `public/index.html`
+- Product styling and artwork: `public/assets/`
+- Complete v2.0.0 documentation: `public/docs/`
 
-The product landing page is implemented in `app/`. The complete v2.0.0
-documentation is published from `public/docs/`, while shared product artwork
-and identity assets live in `public/assets/`.
+Live website: https://donacgreece.github.io/portivo_page/
 
 ## Product
 
