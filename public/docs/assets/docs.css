@@ -30,6 +30,8 @@ body{overflow-x:hidden}
 .mini-card{height:100%;background:#fff;box-shadow:0 7px 18px rgba(40,31,70,.03)}
 .table-scroll{box-shadow:0 8px 24px rgba(40,31,70,.025)}
 .data-table tbody tr:hover{background:#fbfaff}
+.source-deep-dive{margin:34px 0;padding:28px;border:1px solid #dcd6f6;border-radius:18px;background:linear-gradient(145deg,#fbfaff,#f6f3ff)}
+.source-deep-dive>h2{margin-top:0}.source-deep-dive h3{margin-top:24px;font-size:18px}.source-deep-dive p,.source-deep-dive li{color:#4f5a70}.source-deep-dive ul,.source-deep-dive ol{padding-left:22px}.source-label{display:inline-flex;margin-bottom:12px;padding:5px 9px;border:1px solid #d9d0fa;border-radius:999px;color:#5f35ca;background:#fff;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
 .toc{border:1px solid var(--line);border-radius:14px;margin:24px 14px 0 14px;background:#fff;box-shadow:0 8px 20px rgba(40,31,70,.035)}
 .toc a{padding:5px 0;line-height:1.4}
 .prevnext a{min-height:44px;display:inline-flex;align-items:center;transition:border-color .15s ease,transform .15s ease}
