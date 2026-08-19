@@ -1,8 +1,6 @@
-<p align="center"><a href="https://portivo.org/"><img src="public/assets/portivo-logo-color.svg" alt="Portivo Control Center" width="300"></a></p>
+<p align="center"><a href="https://portivo.org/"><img src="public/portivo-social-preview.jpg" alt="Portivo Control Center product overview" width="100%"></a></p>
 
-<h1 align="center">Portivo Control Center</h1>
-
-<p align="center"><strong>Control without complexity.</strong><br>Self-hosted network operations for compatible ALE OmniSwitch environments.</p>
+<p align="center"><strong>Self-hosted network operations for compatible ALE OmniSwitch environments.</strong></p>
 
 <p align="center"><a href="https://portivo.org/">Website</a> · <a href="https://portivo.org/docs/">Documentation</a> · <a href="https://github.com/Donacgreece/Portivo/releases">Releases</a> · <a href="https://github.com/Donacgreece/Portivo">Application source</a></p>
 
