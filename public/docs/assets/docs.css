@@ -88,3 +88,5 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
  .prevnext span:empty{display:none}
  .prevnext a{justify-content:center}
 }
+.mobile-site-return{display:none}
+@media(max-width:760px){.docs-top>.badge{display:none}.mobile-site-return{display:inline-flex;align-items:center;margin-left:auto;padding:7px 9px;border:1px solid var(--line);border-radius:9px;color:#546078;font-size:12px;font-weight:750;white-space:nowrap}.mobile-site-return:hover{color:var(--purple);background:#f3f0ff}.mobile-docs-menu{margin-left:0}}
