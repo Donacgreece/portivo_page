@@ -115,7 +115,7 @@
       ".pc-actions{display:flex;gap:10px;align-items:center}.pc-button{min-height:44px;padding:0 15px;border:1px solid #d8d3e0;background:transparent;color:#fff;font:700 13px Manrope,Arial,sans-serif;cursor:pointer;white-space:nowrap}.pc-button.choice{background:#fff;color:#121116;border-color:#fff}.pc-button:hover{border-color:#a98eff}.pc-button.choice:hover{background:#eee9ff}.pc-button:focus-visible,.pc-settings:focus-visible,.pc-close:focus-visible{outline:3px solid #a98eff;outline-offset:3px}" +
       ".pc-overlay{position:fixed;z-index:10001;inset:0;display:grid;place-items:center;padding:20px;background:rgba(18,17,22,.68)}.pc-panel{width:min(620px,100%);max-height:min(760px,calc(100vh - 40px));overflow:auto;background:#f7f6f2;color:#121116;border:1px solid #dedbe5;box-shadow:0 28px 90px rgba(0,0,0,.35)}.pc-panel-head{display:flex;justify-content:space-between;gap:20px;padding:24px;border-bottom:1px solid #dedbe5}.pc-panel h2{margin:0 0 6px;font-size:25px}.pc-panel p{margin:0;color:#5f5b66;font-size:14px;line-height:1.6}.pc-close{width:38px;height:38px;border:1px solid #dedbe5;background:#fff;font-size:22px;cursor:pointer}.pc-panel-body{padding:22px 24px}.pc-category{display:grid;grid-template-columns:1fr auto;gap:22px;padding:18px 0;border-bottom:1px solid #dedbe5}.pc-category:first-child{padding-top:0}.pc-category h3{margin:0 0 5px;font-size:16px}.pc-category small{display:block;color:#5f5b66;line-height:1.5}.pc-toggle{width:48px;height:26px;margin:0;accent-color:#7348f5}.pc-required{color:#087b59;font-size:12px;font-weight:800}.pc-panel-actions{display:flex;justify-content:flex-end;gap:10px;padding:18px 24px;border-top:1px solid #dedbe5}.pc-panel .pc-button{color:#121116;border-color:#121116}.pc-panel .pc-button.choice{background:#121116;color:#fff}.pc-settings{border:0;background:transparent;color:inherit;padding:0;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}" +
       "body.pc-lock{overflow:hidden}@media(max-width:760px){.pc-consent{left:10px;right:10px;bottom:10px;padding:19px}.pc-consent-grid{display:block}.pc-actions{display:grid;grid-template-columns:1fr 1fr;margin-top:17px}.pc-actions .pc-button:first-child{grid-column:1/-1}.pc-button{white-space:normal}.pc-panel-actions{display:grid;grid-template-columns:1fr 1fr}.pc-panel-actions .pc-button:last-child{grid-column:1/-1}.pc-overlay{padding:10px}.pc-panel{max-height:calc(100vh - 20px)}}";
-    style.textContent += ".pc-settings{color:#562ac9;font-weight:700}";
+    style.textContent += ".pc-settings{color:inherit;font-weight:400;opacity:.82}.pc-settings:hover{opacity:1;color:#562ac9}";
     document.head.appendChild(style);
   }
 
@@ -209,6 +209,13 @@
         button.className = "pc-settings";
         button.textContent = "Cookie settings";
         host.appendChild(button);
+      }
+      if (!host.querySelector('a[href="mailto:info@portivo.org"]')) {
+        if (host.classList.contains("docs-footer")) host.appendChild(document.createTextNode(" · "));
+        var contact = document.createElement("a");
+        contact.href = "mailto:info@portivo.org";
+        contact.textContent = "Contact";
+        host.appendChild(contact);
       }
     });
     document.querySelectorAll(".pc-settings").forEach(function (button) {
