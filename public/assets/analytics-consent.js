@@ -200,7 +200,7 @@
   }
 
   function addSettingsLinks() {
-    var hosts = document.querySelectorAll("footer div,.docs-footer");
+    var hosts = document.querySelectorAll("footer .footer-utility,.docs-footer");
     hosts.forEach(function (host) {
       if (!host.querySelector(".pc-settings")) {
         if (host.classList.contains("docs-footer")) host.appendChild(document.createTextNode(" · "));
@@ -210,7 +210,8 @@
         button.textContent = "Cookie settings";
         host.appendChild(button);
       }
-      if (!host.querySelector('a[href="mailto:info@portivo.org"]')) {
+      var contactScope = host.closest("footer") || host;
+      if (!contactScope.querySelector('a[href="mailto:info@portivo.org"]')) {
         if (host.classList.contains("docs-footer")) host.appendChild(document.createTextNode(" · "));
         var contact = document.createElement("a");
         contact.href = "mailto:info@portivo.org";
