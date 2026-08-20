@@ -9,6 +9,8 @@ Portivo combines switch inventory, live port visibility, endpoint discovery, rea
 - [Product overview](https://portivo.org/): Authoritative overview of Portivo capabilities, architecture, security and deployment model.
 - [Complete handbook](https://portivo.org/docs/handbook.html): End-to-end product, installation, administration, operations and troubleshooting handbook.
 - [Documentation index](https://portivo.org/docs/): Topic-based documentation and technical references.
+- [Privacy Policy](https://portivo.org/privacy.html): Website data-processing information, service providers, legal bases and visitor rights.
+- [Cookie Policy](https://portivo.org/cookie-policy.html): Cookie categories, purposes, providers, duration and consent controls.
 - [Application source](https://github.com/Donacgreece/Portivo): Authoritative product source repository.
 - [Releases](https://github.com/Donacgreece/Portivo/releases): Published application releases and installation artifacts.
 - [Machine-readable product reference](https://portivo.org/llms-full.txt): Detailed factual summary and product boundaries.
