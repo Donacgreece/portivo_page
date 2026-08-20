@@ -1,0 +1,22 @@
+.legal-header {
+  z-index: 50;
+  width: auto;
+  max-width: 1400px;
+  padding-right: 42px;
+  padding-left: 42px;
+}
+
+.legal-header img {
+  width: 182px;
+}
+
+@media (max-width: 680px) {
+  .legal-header {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .legal-header img {
+    width: 150px;
+  }
+}
