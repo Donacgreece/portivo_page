@@ -1,4 +1,6 @@
 const backToTop = document.getElementById('backToTop');
+const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+const siteNav = document.getElementById('siteNav');
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
@@ -21,6 +23,27 @@ if (isRefresh && !window.location.hash) {
 
   window.addEventListener('pageshow', stabilizeRefreshPosition, { once: true });
   window.addEventListener('load', stabilizeRefreshPosition, { once: true });
+}
+
+if (mobileNavToggle && siteNav) {
+  const setMenu = (open) => {
+    mobileNavToggle.setAttribute('aria-expanded', String(open));
+    mobileNavToggle.textContent = open ? 'Close' : 'Menu';
+    siteNav.dataset.open = String(open);
+  };
+  mobileNavToggle.addEventListener('click', () => setMenu(mobileNavToggle.getAttribute('aria-expanded') !== 'true'));
+  siteNav.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setMenu(false);
+      mobileNavToggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) setMenu(false);
+  });
 }
 
 if (backToTop) {
