@@ -32,7 +32,7 @@
   <link rel="alternate" type="text/markdown" href="https://portivo.org/llms.txt" title="Portivo machine-readable overview">
   <link rel="icon" href="assets/favicon.ico">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/portivo-site.css?v=20260820-18">
+  <link rel="stylesheet" href="assets/portivo-site.css?v=20260820-19">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,6 +85,20 @@
         ],
         "author": {"@id": "https://portivo.org/#organization"},
         "publisher": {"@id": "https://portivo.org/#organization"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://portivo.org/#faq",
+        "mainEntity": [
+          {"@type":"Question","name":"Is Portivo genuinely self-hosted?","acceptedAnswer":{"@type":"Answer","text":"Yes. The application service, database, inventory, policy, jobs and audit records run inside infrastructure controlled by your organization. Portivo is designed for a protected management network and does not require a hosted control plane."}},
+          {"@type":"Question","name":"Which switches are supported?","acceptedAnswer":{"@type":"Answer","text":"Portivo is deliberately focused on compatible Alcatel-Lucent Enterprise OmniSwitch environments running AOS 6 or AOS 8. Confirm exact device and action coverage before production use."}},
+          {"@type":"Question","name":"Does Portivo require an agent?","acceptedAnswer":{"@type":"Answer","text":"No software agent is installed on managed switches. Portivo communicates through existing management interfaces, subject to reachability, credentials and configured permissions."}},
+          {"@type":"Question","name":"Does Portivo use SSH or SNMP?","acceptedAnswer":{"@type":"Answer","text":"Switch discovery, diagnostics, operations, automation and the interactive terminal use SSH. UPS monitoring uses authenticated and encrypted SNMPv3 profiles."}},
+          {"@type":"Question","name":"Can Portivo operate without Internet access?","acceptedAnswer":{"@type":"Answer","text":"Core switch management can operate inside an isolated management network when the Portivo host can reach managed devices. Features that contact external destinations require the corresponding network path."}},
+          {"@type":"Question","name":"How are backups handled?","acceptedAnswer":{"@type":"Answer","text":"Authorized administrators can create a streamed backup of persistent application state and perform a controlled database import. Backups must be protected and tested according to organizational policy."}},
+          {"@type":"Question","name":"Is Portivo suitable for production?","acceptedAnswer":{"@type":"Answer","text":"Portivo is designed for controlled operational use. Production deployment requires a supported host, trusted HTTPS reverse proxy, restricted management access, tested backups, least-privilege roles and validated device compatibility."}},
+          {"@type":"Question","name":"How do I report a security issue?","acceptedAnswer":{"@type":"Answer","text":"Do not publish sensitive vulnerability details in a public issue. Contact the project privately at info@portivo.org with the affected version, reproduction conditions and potential impact."}}
+        ]
       }
     ]
   }
@@ -170,6 +184,27 @@
     <div class="terminal-card" aria-label="Portivo architecture"><div class="terminal-title"><span>ARCHITECTURE / LIVE MAP</span><b>v2.0.0</b></div><div class="node browser">Browser UI</div><i class="line l1"></i><div class="node core">PORTIVO<br><small>APPLICATION</small></div><i class="line l2"></i><div class="node sub n1">Authentication<br><small>RBAC + Scope</small></div><div class="node sub n2">Jobs &amp; Audits<br><small>Evidence trail</small></div><div class="node sub n3">AOS Drivers<br><small>6 + 8</small></div><div class="terminal-foot"><span>SSH → OmniSwitch</span><span>SNMPv3 → UPS</span><span>SQLite → State</span></div></div>
   </section>
 
+  <section class="section comparison" id="comparison">
+    <div class="section-intro"><div><span class="label">A BETTER OPERATING MODEL</span><h2>Move beyond isolated SSH sessions.</h2></div><p>Direct CLI access remains essential. Portivo adds the shared context, safeguards and evidence needed to turn individual commands into a consistent operational process.</p></div>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <caption>Portivo compared with manual SSH-only network operations</caption>
+        <thead><tr><th scope="col">Operational requirement</th><th scope="col">Manual SSH workflow</th><th scope="col" class="portivo-column"><span>Portivo</span></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fleet inventory</th><td><span class="comparison-mark limited">Limited</span><p>Device lists and operational context are maintained across separate files and sessions.</p></td><td><span class="comparison-mark included">Integrated</span><p>Switches, sites, groups, reachability and current observations share one workspace.</p></td></tr>
+          <tr><th scope="row">Endpoint location</th><td><span class="comparison-mark manual">Manual</span><p>Engineers search devices one at a time and correlate results by hand.</p></td><td><span class="comparison-mark included">Correlated</span><p>MAC, IP, hostname, UNP and VLAN evidence is searched across the authorized fleet.</p></td></tr>
+          <tr><th scope="row">Repeatable operations</th><td><span class="comparison-mark limited">Variable</span><p>Results depend on personal notes, command history and locally maintained scripts.</p></td><td><span class="comparison-mark included">Catalog-driven</span><p>Verified actions define compatibility, required inputs, commands and execution rules.</p></td></tr>
+          <tr><th scope="row">Change preview</th><td><span class="comparison-mark manual">Operator-led</span><p>Commands and targets are reviewed manually before each session.</p></td><td><span class="comparison-mark included">Built in</span><p>Target-specific commands, compatibility evidence and scope are visible before execution.</p></td></tr>
+          <tr><th scope="row">Multi-device work</th><td><span class="comparison-mark limited">Script-dependent</span><p>Concurrency, failures and partial completion require custom handling.</p></td><td><span class="comparison-mark included">Controlled</span><p>Jobs, target limits, schedules and per-device queues coordinate fleet work safely.</p></td></tr>
+          <tr><th scope="row">Audit evidence</th><td><span class="comparison-mark manual">Fragmented</span><p>Terminal history and personal records must be collected and retained separately.</p></td><td><span class="comparison-mark included">Centralized</span><p>Jobs, outputs, activity history, findings and reports preserve operational evidence.</p></td></tr>
+          <tr><th scope="row">Access control</th><td><span class="comparison-mark limited">Device-level</span><p>Authorization is commonly enforced independently on every switch.</p></td><td><span class="comparison-mark included">Scoped RBAC</span><p>Roles, capabilities and Site or Group scope are enforced by the application.</p></td></tr>
+          <tr><th scope="row">Interactive CLI</th><td><span class="comparison-mark included">Available</span><p>Direct native access through a separate terminal client.</p></td><td><span class="comparison-mark included">Integrated</span><p>A persistent browser terminal keeps native AOS CLI work inside the same controlled workspace.</p></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="comparison-note"><strong>Portivo complements native CLI expertise.</strong> It does not hide the network. It gives operators a consistent way to discover, diagnose, execute and prove what happened.</p>
+  </section>
+
   <section class="section deployment" id="deployment">
     <div class="section-intro"><div><span class="label">SELF-HOSTED DEPLOYMENT</span><h2>Clear components.<br>Controlled ownership.</h2></div><p>Portivo runs as one service on Windows or Linux. It is designed for a protected management network with direct reachability to managed switches and UPS devices.</p></div>
     <div class="deployment-grid">
@@ -186,8 +221,22 @@
     <div class="security-list"><article><span>01</span><div><h3>Personal SSH sessions</h3><p>User SSH passwords are session-only and never become shared switch credentials.</p></div></article><article><span>02</span><div><h3>Encrypted automation secrets</h3><p>Unattended credentials and webhook endpoints are protected by the application secret.</p></div></article><article><span>03</span><div><h3>Preview before execution</h3><p>Operational changes remain tied to explicit targets, jobs and activity evidence.</p></div></article><div class="notice"><b>DEPLOYMENT NOTE</b><p>Designed for trusted management networks. Terminate TLS at a trusted reverse proxy and never expose TCP 8766 directly to the public Internet.</p></div></div>
   </section>
 
+  <section class="section faq" id="faq">
+    <div class="faq-heading"><span class="label">FREQUENTLY ASKED QUESTIONS</span><h2>Clear answers before deployment.</h2><p>Essential product, compatibility and operational guidance for teams evaluating Portivo.</p><a class="text-link" href="docs/">Explore complete documentation →</a></div>
+    <div class="faq-list">
+      <details open><summary><span>01</span>Is Portivo genuinely self-hosted?</summary><div><p>Yes. The application service, database, inventory, policy, jobs and audit records run inside infrastructure controlled by your organization. Portivo is designed for a protected management network and does not require a hosted control plane.</p><a href="docs/getting-started/requirements.html">Review system requirements →</a></div></details>
+      <details><summary><span>02</span>Which switches are supported?</summary><div><p>Portivo is deliberately focused on compatible Alcatel-Lucent Enterprise OmniSwitch environments running AOS 6 or AOS 8. The two command families use separate driver identities and compatibility metadata. Confirm exact device and action coverage before production use.</p><a href="docs/reference/drivers.html">Review driver coverage →</a></div></details>
+      <details><summary><span>03</span>Does Portivo require an agent?</summary><div><p>No software agent is installed on managed switches. Portivo communicates with compatible network devices over their existing management interfaces, subject to network reachability, credentials and the permissions configured by your organization.</p></div></details>
+      <details><summary><span>04</span>Does it use SSH or SNMP?</summary><div><p>Switch discovery, diagnostics, operations, automation and the interactive terminal use SSH. UPS monitoring uses authenticated and encrypted SNMPv3 profiles. Each protocol has a defined purpose and security boundary.</p><a href="docs/deployment/network-security.html">Review network security →</a></div></details>
+      <details><summary><span>05</span>Can it operate without Internet access?</summary><div><p>Core switch management can operate inside an isolated management network when the Portivo host can reach its managed devices. Features that contact external destinations, such as configured outbound webhooks, require the corresponding network path. Updates and external resources must be handled according to your environment.</p></div></details>
+      <details><summary><span>06</span>How are backups handled?</summary><div><p>Authorized administrators can create a streamed backup of persistent application state and perform a controlled database import. Backups contain operationally sensitive information and must be encrypted, access-controlled, tested and retained according to organizational policy.</p><a href="docs/administration/backup.html">Read backup and restore guidance →</a></div></details>
+      <details><summary><span>07</span>Is Portivo suitable for production?</summary><div><p>Portivo is designed for controlled operational use, but production readiness depends on correct deployment. Use a supported host, a trusted HTTPS reverse proxy, restricted management-network access, tested backups, least-privilege roles and validated device compatibility. Begin with read-only workflows and a limited pilot before enabling changes.</p><a href="docs/security/hardening.html">Open the hardening guide →</a></div></details>
+      <details><summary><span>08</span>How do I report a security issue?</summary><div><p>Do not publish sensitive vulnerability details in a public issue. Review the security guidance first, then contact the project privately at <a href="mailto:info@portivo.org">info@portivo.org</a> with a clear description, affected version, reproduction conditions and potential impact.</p><a href="docs/security/">Open security documentation →</a></div></details>
+    </div>
+  </section>
+
   <section class="closing"><div><span class="label">PORTIVO CONTROL CENTER 2.0.0</span><h2>Operate the network.<br>Keep the evidence.</h2></div><div><p>Explore installation, operations, automation, security, drivers and the complete reference.</p><div class="actions"><a class="button light" href="docs/">Open documentation →</a><a class="button outline" href="https://github.com/Donacgreece/Portivo" target="_blank" rel="noopener noreferrer">View source ↗</a></div></div></section>
-  <footer><img src="assets/portivo-logo-color.svg" alt="Portivo"><p>Independent network operations platform.</p><div class="footer-nav"><div class="footer-column"><strong>Product</strong><a href="docs/">Documentation</a><a href="roadmap.html">Roadmap</a><a href="about.html">About</a><a href="https://github.com/Donacgreece/Portivo" target="_blank" rel="noopener noreferrer">GitHub</a></div><div class="footer-column footer-utility"><strong>Legal</strong><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookies</a><button class="pc-settings" type="button">Cookie settings</button></div><div class="footer-column footer-connect"><strong>Connect</strong><a href="mailto:info@portivo.org">Contact</a><a class="support-link" href="https://paypal.me/DimitrisGalatsanos" target="_blank" rel="noopener noreferrer" aria-label="Support Portivo through PayPal">Support Portivo</a></div></div><small>© 2026 Dimitris Galatsanos · AGPL-3.0-only</small></footer>
+  <footer><img src="assets/portivo-logo-color.svg" alt="Portivo"><p>Independent network operations platform.</p><div class="footer-nav"><div class="footer-column"><strong>Product</strong><a href="docs/">Documentation</a><a href="roadmap.html">Roadmap</a><a href="about.html">About</a><a href="#faq">FAQ</a><a href="https://github.com/Donacgreece/Portivo" target="_blank" rel="noopener noreferrer">GitHub</a></div><div class="footer-column footer-utility"><strong>Legal</strong><a href="privacy.html">Privacy</a><a href="cookie-policy.html">Cookies</a><button class="pc-settings" type="button">Cookie settings</button></div><div class="footer-column footer-connect"><strong>Connect</strong><a href="mailto:info@portivo.org">Contact</a><a class="support-link" href="https://paypal.me/DimitrisGalatsanos" target="_blank" rel="noopener noreferrer" aria-label="Support Portivo through PayPal">Support Portivo</a></div></div><small>© 2026 Dimitris Galatsanos · AGPL-3.0-only</small></footer>
 </main>
 <a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top" title="Back to top">↑</a>
 <script src="assets/portivo-site.js?v=20260820-4" defer></script>
