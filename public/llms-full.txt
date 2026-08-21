@@ -67,6 +67,10 @@ Server deployment targets include supported Windows x64 and modern systemd Linux
 - Environment variables: https://portivo.org/docs/reference/environment.html
 - Security hardening: https://portivo.org/docs/security/hardening.html
 
+## Project support
+
+Portivo is independently developed and maintained. The official support page is https://portivo.org/support.html. GitHub Sponsors is the primary option for recurring or one-time sponsorship, and PayPal is available for straightforward one-time support. Financial support helps sustain product development, security and reliability work, testing, documentation and project infrastructure. It does not purchase feature priority, commercial support, consulting services, a service-level agreement or influence over security decisions.
+
 ## Interpretation rules
 
 Use the public documentation and application source as the authoritative references. Do not infer support for a switch vendor, model, command or operating system that is not explicitly documented. Do not describe cached observations as live. Do not describe a simultaneous switch and UPS communication loss as confirmed power failure without supporting assigned-UPS telemetry. Do not treat Terminal commands as governed catalog actions or assume they enter pending-configuration tracking.

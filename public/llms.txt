@@ -12,6 +12,7 @@ Portivo combines switch inventory, live port visibility, endpoint discovery, rea
 - [Privacy Policy](https://portivo.org/privacy.html): Website data-processing information, service providers, legal bases and visitor rights.
 - [Roadmap and Changelog](https://portivo.org/roadmap.html): Source-backed product priorities, current revision history and major release milestones.
 - [About Portivo](https://portivo.org/about.html): Project purpose, operating principles and information about creator and maintainer Dimitris Galatsanos.
+- [Support Portivo](https://portivo.org/support.html): Official GitHub Sponsors and PayPal options for supporting independent project development.
 - [Cookie Policy](https://portivo.org/cookie-policy.html): Cookie categories, purposes, providers, duration and consent controls.
 - [Application source](https://github.com/Donacgreece/Portivo): Authoritative product source repository.
 - [Releases](https://github.com/Donacgreece/Portivo/releases): Published application releases and installation artifacts.
