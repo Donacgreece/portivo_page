@@ -52,7 +52,8 @@ footer.site-footer .footer-column strong {
 }
 
 footer.site-footer .footer-column a,
-footer.site-footer .footer-column button {
+footer.site-footer .footer-column button,
+footer.site-footer .footer-column .footer-coming-soon {
   min-height: 24px;
   margin: 0;
   padding: 0;
@@ -67,6 +68,19 @@ footer.site-footer .footer-column button {
   text-decoration: none;
   cursor: pointer;
   transition: color .2s;
+}
+
+footer.site-footer .footer-coming-soon {
+  color: #89848f;
+  cursor: default;
+}
+
+footer.site-footer .footer-coming-soon small {
+  margin-left: 7px;
+  color: #7348f5;
+  font: 500 7px/1 "DM Mono", monospace;
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
 
 footer.site-footer .footer-column a:hover,
