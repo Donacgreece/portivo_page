@@ -2,7 +2,7 @@
 
 Canonical website: https://portivo.org/
 Documentation: https://portivo.org/docs/
-Application source: https://github.com/Donacgreece/Portivo
+Application source: https://github.com/Donacgreece/portivo
 License: AGPL-3.0-only for Portivo-owned source
 
 ## Identity and scope

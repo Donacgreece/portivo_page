@@ -14,8 +14,7 @@ Portivo combines switch inventory, live port visibility, endpoint discovery, rea
 - [About Portivo](https://portivo.org/about.html): Project purpose, operating principles and information about creator and maintainer Dimitris Galatsanos.
 - [Support Portivo](https://portivo.org/support.html): Official GitHub Sponsors and PayPal options for supporting independent project development.
 - [Cookie Policy](https://portivo.org/cookie-policy.html): Cookie categories, purposes, providers, duration and consent controls.
-- [Application source](https://github.com/Donacgreece/Portivo): Authoritative product source repository.
-- [Releases](https://github.com/Donacgreece/Portivo/releases): Published application releases and installation artifacts.
+- [Application source](https://github.com/Donacgreece/portivo): Authoritative product source repository and published project artifacts.
 - [Machine-readable product reference](https://portivo.org/llms-full.txt): Detailed factual summary and product boundaries.
 
 ## Operations
