@@ -80,12 +80,12 @@ footer.site-footer .footer-utility {
 }
 
 footer.site-footer .support-link {
-  color: #7348f5;
+  color: #7348f5 !important;
   font-weight: 800;
 }
 
 footer.site-footer .support-link:hover {
-  color: #562ac9;
+  color: #562ac9 !important;
 }
 
 footer.site-footer a:focus-visible,
