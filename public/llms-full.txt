@@ -4,6 +4,7 @@ Canonical website: https://portivo.org/
 Documentation: https://portivo.org/docs/
 Application source repository: Coming soon.
 License: AGPL-3.0-only for Portivo-owned source
+Current release: Portivo Control Center v2.1.0, static revision r5
 
 ## Identity and scope
 
@@ -29,7 +30,7 @@ Fleet Audits provide structured read-only assessments for thermal health, coolin
 
 Runbooks contain typed COMMAND, WAIT and VERIFY steps, variables, target limits and concurrency policy. Editing an approved Runbook returns it to Draft. Executions use an immutable rendered snapshot. Scheduled work uses a separate encrypted Automation credential.
 
-Monitoring can independently cover switch reachability, stack health, UPS infrastructure and incident detection. Management-only mode pauses background workers while preserving configuration and history. Notification destinations include Microsoft Teams or Power Automate, Slack, Discord and Generic JSON webhooks with per-destination event and scope policy.
+Monitoring can independently cover switch reachability, stack health, UPS infrastructure and incident detection. Version 2.1.0 uses ICMP-first adaptive reachability without background SSH authentication, supports optional independent SNMPv3 sysUpTime telemetry and provides Auto, Ping, SNMPv3 or TCP/22 health modes. Stack Member Health can learn member baselines, discover AOS 8 topology and raise independently confirmed incidents for an affected chassis. Management-only mode pauses background workers while preserving configuration and history. Notification destinations include Microsoft Teams or Power Automate, Slack, Discord and Generic JSON webhooks with per-destination event and scope policy.
 
 Power Infrastructure stores UPS devices once and assigns the switches they physically protect. SNMPv3 drivers collect supported battery, runtime, load and power-state telemetry. Power correlation is reported only when assignments and current evidence support it.
 
