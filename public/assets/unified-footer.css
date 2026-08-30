@@ -71,26 +71,33 @@ footer.site-footer .footer-column .footer-coming-soon {
 }
 
 footer.site-footer .footer-coming-soon {
-  gap: 8px;
-  color: #89848f;
+  gap: 10px;
+  color: #5f5b66;
   cursor: default;
   white-space: nowrap;
 }
 
 footer.site-footer .footer-coming-soon small {
-  min-height: 18px;
   margin: 0;
-  padding: 0 7px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
-  border: 1px solid #d8ccff;
-  border-radius: 999px;
-  background: #f1edff;
-  color: #6236de;
-  font: 500 7px/18px "DM Mono", monospace;
-  letter-spacing: .1em;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: #89848f;
+  font: 500 7px/1 "DM Mono", monospace;
+  letter-spacing: .13em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+footer.site-footer .footer-coming-soon small::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #7348f5;
 }
 
 footer.site-footer .footer-column a:hover,
