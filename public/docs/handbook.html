@@ -114,7 +114,7 @@
 
   <h2 id="monitoring">15. Monitoring and notifications</h2>
   <p>Full monitoring can independently enable switch availability, stack health, UPS monitoring and incident detection. Management only pauses the background workers while preserving credentials, baselines, assignments, routing and history. On-demand Operations, Find Device, audits and administration remain usable.</p>
-  <h3>Switch reachability</h3><p>The background health worker performs a lightweight TCP probe to the configured SSH service. Confirmation thresholds and retry timing prevent a single transient failure from becoming an incident. Long-offline targets are polled at a lower rate to control load.</p>
+  <h3>Switch reachability</h3><p>The background health worker uses one ICMP echo per normal poll and never opens TCP/22 for reachability. A failed echo receives exactly two bounded retries. Auto may then use one lightweight SNMPv3 <code>sysUpTime.0</code> request when a monitoring profile is available. SNMP telemetry remains independent from ping reachability. Confirmation thresholds, deterministic per-switch jitter and adaptive offline backoff keep fleet impact bounded.</p>
   <h3>Destinations and routing</h3><p>Microsoft Teams/Power Automate, Slack, Discord and Generic JSON destinations can coexist. Endpoint URLs are encrypted at rest and are not returned in clear text after save. Each destination has event subscriptions and Site/Group scope. One incident can fan out to multiple independent delivery rows.</p>
   <h3>Delivery semantics</h3><p>The outbox is persisted before network delivery. Temporary failures use bounded retry. A failed destination does not block another. If a target recovers before an offline message is delivered, the pending outage can be cancelled. Recovery is sent only to destinations that received the corresponding outage and still subscribe to recovery.</p>
   <div class="warning note"><strong>Webhook acceptance is not final delivery proof.</strong><br>An HTTP success from an automation endpoint can mean the workflow accepted the request, not that every downstream message action completed. Monitor the receiving platform separately.</div>
@@ -147,7 +147,7 @@
   <tr><td>Works locally, not through URL</td><td>DNS, firewall, proxy upstream, TLS certificate, host header</td><td>Opening the application port broadly</td></tr>
   <tr><td>Login loop through proxy</td><td>Public scheme, trusted proxy IPs, cookie security, system time</td><td>Disabling authentication controls</td></tr>
   <tr><td>Terminal fails, pages work</td><td>WebSocket upgrade forwarding, proxy timeout, user Terminal capability</td><td>Changing switch configuration</td></tr>
-  <tr><td>Switch Offline</td><td>Host-to-switch TCP/22, routing, ACL, listener, maintenance, observation time</td><td>Assuming hardware or power failure from one signal</td></tr>
+  <tr><td>Switch Offline</td><td>Host-to-switch ICMP, routing, ACL, optional SNMPv3 profile, maintenance and observation time</td><td>Assuming hardware or power failure from one signal</td></tr>
   <tr><td>Authentication rejected</td><td>Username, password, switch auth source, lockout state, scope</td><td>Rapid repeated retries</td></tr>
   <tr><td>Action unsupported</td><td>Detected AOS family, model/version, action tier, learned rejection evidence</td><td>Trying raw configuration syntax experimentally</td></tr>
   <tr><td>Job Interrupted</td><td>Service restart/crash time, completed items, heartbeat, per-target result</td><td>Retrying all targets without checking completed work</td></tr>
